@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views https://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+  <grid name="hello-world-grid" title="Hello world lista" 
+            model="com.eyc.base.db.HelloWorld">
+    <field name="message" />
+   </grid>
+
+  <form name="hello-world-form" title="Hello world" 
+  model="com.eyc.base.db.HelloWorld" width="mini">
+    <panel title="Overview"  >
+      <field name="message" colSpan="06" />
+      <field name="numeroMensaje" colSpan="06" />
+    </panel>
+  </form>
+
+  <action-view name="hello-world-action"
+                title="Hello world list"
+          model="com.eyc.base.db.HelloWorld">
+     <view type="grid" name="hello-world-grid" />
+     <view type="form" name="hello-world-form" />
+  </action-view>
+
+
+</object-views>

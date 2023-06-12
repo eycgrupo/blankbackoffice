@@ -1,0 +1,60 @@
+buildscript {
+  ext.repos = {
+    mavenLocal()
+    jcenter()
+    mavenCentral()
+    maven { url 'https://plugins.gradle.org/m2/' }
+    maven { url 'https://repository.axelor.com/nexus/public/' }
+    ivy {
+      name = "Node.js"
+      setUrl("https://nodejs.org/dist/")
+      patternLayout {
+        artifact("v[revision]/[artifact](-v[revision]-[classifier]).[ext]")
+      }
+      metadataSources {
+        artifact()
+      }
+      content {
+        includeModule("org.nodejs", "node")
+      }
+    }
+  }
+  ext.platformVersion = '6.1.0-SNAPSHOT-EYC'
+  ext.appVersion = '2.0.0'
+
+  repositories repos
+  dependencies {
+    classpath "com.axelor:axelor-gradle:${platformVersion}"
+  }
+}
+
+allprojects {
+  repositories repos
+}
+
+ 
+apply plugin: 'com.axelor.app'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+ 
+apply from: './gradle/style.gradle'
+
+axelor {
+  title = "HelloWorld :: Helloworld backoffice"
+}
+
+allprojects {
+  apply plugin: 'idea';
+  apply plugin: 'eclipse'
+
+  group = "com.axelor"
+  version = "${appVersion}"
+}
+
+dependencies {
+  implementation project(":modules:base")
+}
+
+ war {
+  archiveFileName = 'holamundo.war'
+}
