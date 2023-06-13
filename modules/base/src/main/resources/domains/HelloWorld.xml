@@ -6,9 +6,8 @@
   <module name="base" package="com.eyc.base.db" />
 
   <entity name="HelloWorld" cacheable="false">
-      <string name="message" 
-         nameColumn="true" title="Message"   />
-       <int name="numeroMensaje" title="Número de mensaje" />
+      <string name="message" nameColumn="true" title="Message"   />
+      <integer name="numeroMensaje" title="Número de mensaje" />
     </entity>
 
  
