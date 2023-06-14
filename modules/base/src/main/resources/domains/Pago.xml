@@ -5,10 +5,11 @@
 
   <module name="base" package="com.eyc.base.db" />
 
-  <entity name="HelloWorld" cacheable="false">
-      <string name="message" nameColumn="true" title="Message"   />
-      <integer name="numeroMensaje" title="Número de mensaje" />
+  <entity name="Pago" cacheable="false">
+      <many-to-one name="cliente" ref="Cliente" title="Cliente" />
+      <date name="fecha" nameColumn="true" title="Fecha de pago"   />
+      <decimal name="monto" title="Monto de pago"  precision="12" scale="2" 
+            default="0.00"  />
   </entity>
-
  
 </domain-models>

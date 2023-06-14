@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views https://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+<grid name="cliente-grid" title="Clientes"
+    model="com.eyc.base.db.Cliente">
+    <field name="nombreCompleto" />
+</grid>
+
+<form name="mickeymouse" title="Cliente" 
+     model="com.eyc.base.db.Cliente" >
+
+   <panel title="Datos del cliente">
+       <field name="nombreCompleto" colSpan="12" />
+  </panel>
+ 
+</form>
+
+<action-view name="cliente-pagos-accion"
+     title="Clientes" 
+     model="com.eyc.base.db.Cliente">
+  <view type="grid" name="cliente-grid" />
+  <view type="form" name="mickeymouse" />
+</action-view>
+
+</object-views>

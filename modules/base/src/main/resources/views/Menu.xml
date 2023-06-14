@@ -8,5 +8,10 @@
             icon="fa-cubes" icon-background="blue"
             action="hello-world-action" />
 
+<menuitem name="eyc-menu-parent-clientes"
+            title="Clientes"
+            icon="fa-cubes" icon-background="yellow"
+            action="cliente-pagos-accion" />
+
 </object-views>
 

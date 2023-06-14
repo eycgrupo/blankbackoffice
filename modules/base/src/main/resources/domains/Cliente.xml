@@ -5,10 +5,9 @@
 
   <module name="base" package="com.eyc.base.db" />
 
-  <entity name="HelloWorld" cacheable="false">
-      <string name="message" nameColumn="true" title="Message"   />
-      <integer name="numeroMensaje" title="Número de mensaje" />
+  <entity name="Cliente" cacheable="false">
+      <one-to-many name="pagos" ref="Pago" mappedBy="cliente" title="Pagos" />
+      <string name="nombreCompleto" nameColumn="true" title="Nombre completo"   />
   </entity>
-
  
 </domain-models>
