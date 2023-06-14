@@ -14,7 +14,9 @@
    <panel title="Datos del cliente">
        <field name="nombreCompleto" colSpan="12" />
   </panel>
- 
+
+  <panel-related field="pagos" colSpan="12" 
+     title="Pagos" />
 </form>
 
 <action-view name="cliente-pagos-accion"
