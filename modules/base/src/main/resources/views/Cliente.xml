@@ -16,7 +16,7 @@
   </panel>
 
   <panel-related field="pagos" colSpan="12" 
-     title="Pagos" />
+     grid-view="pagos-grid" form-view="pagos-form" title="Pagos" />
 </form>
 
 <action-view name="cliente-pagos-accion"
