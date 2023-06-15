@@ -12,6 +12,13 @@
       <boolean name="activo" title="es Activo?" default = "true" />
       <decimal name="saldo" title="Saldo actual"  precision="12" scale="2" 
             default="0.00"  />
+      <decimal name="pagosConsolidados" title="Pagos consolidados"  formula="true">
+       <![CDATA[
+        ( SELECT sum(c.monto) FROM base_pago c
+           WHERE c.cliente = id  
+             AND c.consolidado = true)
+         ]]> 
+      </decimal>
   </entity>
  
 </domain-models>

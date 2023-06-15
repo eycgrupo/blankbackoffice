@@ -7,6 +7,8 @@
     model="com.eyc.base.db.Cliente">
     <field name="nombreCompleto" />
     <field name="saldo" />
+    <field name="pagosConsolidados" />
+
 </grid>
 
 <form name="mickeymouse" title="Cliente" 
