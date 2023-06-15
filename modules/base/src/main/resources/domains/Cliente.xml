@@ -8,6 +8,10 @@
   <entity name="Cliente" cacheable="false">
       <one-to-many name="pagos" ref="Pago" mappedBy="cliente" title="Pagos" />
       <string name="nombreCompleto" nameColumn="true" title="Nombre completo"   />
+      <string name="comentarios" large="true" title="Comentarios" />
+      <boolean name="activo" title="es Activo?" default = "true" />
+      <decimal name="saldo" title="Saldo actual"  precision="12" scale="2" 
+            default="0.00"  />
   </entity>
  
 </domain-models>

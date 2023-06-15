@@ -9,10 +9,17 @@
 </grid>
 
 <form name="mickeymouse" title="Cliente" 
-     model="com.eyc.base.db.Cliente" >
+     model="com.eyc.base.db.Cliente" width="large"  >
 
    <panel title="Datos del cliente">
-       <field name="nombreCompleto" colSpan="12" />
+       <field name="nombreCompleto" colSpan="09" />
+       <field name="activo" widget="BooleanSwitch" colSpan="03"  />
+       <field name="saldo" readonlyIf="id"  colSpan="12" />
+  </panel>
+ 
+  <panel title="Comentarios" > 
+       <field name="comentario" showTitle="false" widget="TEXT" />
+
   </panel>
 
   <panel-related field="pagos" colSpan="12" 

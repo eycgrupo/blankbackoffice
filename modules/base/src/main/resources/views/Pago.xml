@@ -6,12 +6,14 @@
 <grid name="pagos-grid" title="Lista de pagos"  model="com.eyc.base.db.Pago">
     <field name="fecha" />
     <field name="monto" />
+    <field name="consolidado" />
 </grid>
 
 <form name="pagos-form" title="pago"  model="com.eyc.base.db.Pago" >
    <panel title="Datos del pago">
-       <field name="fecha" colSpan="06" />
+       <field name="fecha" colSpan="12" />
        <field name="monto" colSpan="06" />
+       <field name="consolidado" colSpan="06" widget="BooleanSwitch" />
   </panel>
 </form>
 
