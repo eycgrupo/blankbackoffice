@@ -16,21 +16,22 @@
       <menuitem name="eyc-menu-clientes-todos"
                   parent="eyc-menu-parent-clientes"
                   title="Todos los clientes"
-                   
                   action="cliente-todos-accion" />
 
       <menuitem name="eyc-menu-clientes-morosos"
                   parent="eyc-menu-parent-clientes"
-                  title="Clientes Morosos"
-                   
+                  title="Clientes Morosos"        
                   action="cliente-morosos-accion" />
 
       <menuitem name="eyc-menu-clientes-al-dia"
                   parent="eyc-menu-parent-clientes"
                   title="Clientes al día"
-                  
                   action="cliente-al-dia-accion" />
 
-
+      <menuitem name="eyc-menu-clientes-con-pagos"
+                  parent="eyc-menu-parent-clientes"
+                  title="Clientes con pagos"
+                  action="cliente-con-pagos-accion" />
+                  
 </object-views>
 

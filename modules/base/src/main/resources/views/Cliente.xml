@@ -50,5 +50,12 @@
   <domain>self.saldo = 0 </domain>
 </action-view>
 
+<action-view name="cliente-con-pagos-accion"
+     title="Clientes con pagos" 
+     model="com.eyc.base.db.Cliente">
+  <view type="grid" name="cliente-grid" />
+  <view type="form" name="mickeymouse" />
+  <domain>self.id IN (select cliente FROM Pago)</domain>
+</action-view>
 
 </object-views>
