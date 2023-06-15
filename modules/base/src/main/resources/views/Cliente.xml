@@ -6,10 +6,11 @@
 <grid name="cliente-grid" title="Clientes"
     model="com.eyc.base.db.Cliente">
     <field name="nombreCompleto" />
+    <field name="saldo" />
 </grid>
 
 <form name="mickeymouse" title="Cliente" 
-     model="com.eyc.base.db.Cliente" width="large"  >
+     model="com.eyc.base.db.Cliente" width="large"    >
 
    <panel title="Datos del cliente">
        <field name="nombreCompleto" colSpan="09" />
@@ -17,20 +18,37 @@
        <field name="saldo" readonlyIf="id"  colSpan="12" />
   </panel>
  
-  <panel title="Comentarios" > 
+  <panel title="Comentarios"  > 
        <field name="comentario" showTitle="false" widget="TEXT" />
-
   </panel>
 
-  <panel-related field="pagos" colSpan="12" 
+  <panel-related field="pagos" colSpan="12" orderBy="fecha"
      grid-view="pagos-grid" form-view="pagos-form" title="Pagos" />
 </form>
 
-<action-view name="cliente-pagos-accion"
+<action-view name="cliente-todos-accion"
      title="Clientes" 
      model="com.eyc.base.db.Cliente">
   <view type="grid" name="cliente-grid" />
   <view type="form" name="mickeymouse" />
 </action-view>
+
+
+<action-view name="cliente-morosos-accion"
+     title="Clientes Morosos" 
+     model="com.eyc.base.db.Cliente">
+  <view type="grid" name="cliente-grid" />
+  <view type="form" name="mickeymouse" />
+  <domain>self.saldo &gt; 0 </domain>
+</action-view>
+
+<action-view name="cliente-al-dia-accion"
+     title="Clientes Morosos" 
+     model="com.eyc.base.db.Cliente">
+  <view type="grid" name="cliente-grid" />
+  <view type="form" name="mickeymouse" />
+  <domain>self.saldo = 0 </domain>
+</action-view>
+
 
 </object-views>
