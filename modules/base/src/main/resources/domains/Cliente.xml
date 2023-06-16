@@ -7,16 +7,35 @@
 
   <entity name="Cliente" cacheable="false">
       <one-to-many name="pagos" ref="Pago" mappedBy="cliente" title="Pagos" />
-      <string name="nombreCompleto" nameColumn="true" title="Nombre completo"   />
+      <string name="nombre"   title="Nombre"   />
+      <string name="apellidos"  title="Apellidos"   />
+      <string name="nombreCompleto" nameColumn="true" search="nombre,apellidos"  title="Nombre completo">
+      <![CDATA[
+            if (nombre == null && apellidos == null)
+              return null;
+            if (apellidos == null)
+                    return  nombre;
+            if (nombre == null)
+                    return  apellidos;
+            return  nombre + " " + apellidos;
+    ]]></string>
       <string name="comentarios" large="true" title="Comentarios" />
       <boolean name="activo" title="es Activo?" default = "true" />
       <decimal name="saldo" title="Saldo actual"  precision="12" scale="2" 
             default="0.00"  />
-      <decimal name="pagosConsolidados" title="Pagos consolidados"  formula="true">
+      <decimal name="pagosConsolidados" title="Consolidados"  formula="true">
        <![CDATA[
         ( SELECT sum(c.monto) FROM base_pago c
            WHERE c.cliente = id  
              AND c.consolidado = true)
+         ]]> 
+      </decimal>
+    
+       <decimal name="pagosNoConsolidados" title="No consolidados"  formula="true">
+       <![CDATA[
+        ( SELECT sum(c.monto) FROM base_pago c
+           WHERE c.cliente = id  
+             AND c.consolidado = false)
          ]]> 
       </decimal>
   </entity>

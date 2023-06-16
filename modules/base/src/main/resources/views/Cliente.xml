@@ -8,6 +8,7 @@
     <field name="nombreCompleto" />
     <field name="saldo" />
     <field name="pagosConsolidados" />
+    <field name="pagosNoConsolidados" />
 
 </grid>
 
@@ -15,7 +16,18 @@
      model="com.eyc.base.db.Cliente" width="large"    >
 
    <panel title="Datos del cliente">
-       <field name="nombreCompleto" colSpan="09" />
+
+
+    <field name="nombreCompleto" readonly="false" colSpan="12" >
+         <editor x-show-titles="false">
+             <field name="nombre" colSpan="6"/>
+             <field name="apellidos" colSpan="6"/>
+          </editor>
+    </field>
+
+         
+     
+
        <field name="activo" widget="BooleanSwitch" colSpan="03"  />
        <field name="saldo" readonlyIf="id"  colSpan="12" />
   </panel>
@@ -23,6 +35,12 @@
   <panel title="Comentarios"  > 
        <field name="comentario" showTitle="false" widget="TEXT" />
   </panel>
+
+    <panel title="Resúmen de pagos por consolidación"  > 
+           <field name="pagosConsolidados" colSpan="06" />
+           <field name="pagosNoConsolidados" colSpan="06" />
+    </panel>
+
 
   <panel-related field="pagos" colSpan="12" orderBy="fecha"
      grid-view="pagos-grid" form-view="pagos-form" title="Pagos" />
