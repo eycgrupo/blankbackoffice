@@ -11,6 +11,10 @@
       <decimal name="monto" title="Monto de pago"  precision="12" scale="2" 
             default="0.00"  />
       <boolean name="consolidado" title="Está consolidado?" default="false" />
+      
+      
+      <entity-listener class="com.eyc.base.db.repo.PagoListener"/>
+
   </entity>
  
 </domain-models>

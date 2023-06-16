@@ -6,8 +6,7 @@ import javax.persistence.PostUpdate;
 
 public class PagoListener {
   @PostPersist
-  @PostUpdate
-  private void onPostPersistOrUpdate(Pago pago) {
-    System.out.println("Pago guardado");
+  private void pluto(Pago pago) {
+     System.out.println("Pago guardado");
   }
 } 
