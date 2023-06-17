@@ -4,6 +4,7 @@
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views https://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
 
 <grid name="cliente-grid" title="Clientes"
+   
     model="com.eyc.base.db.Cliente">
     <field name="nombreCompleto" />
     <field name="saldo" />
@@ -12,7 +13,8 @@
 
 </grid>
 
-<form name="mickeymouse" title="Cliente" 
+<form name="mickeymouse" title="Cliente"
+onSave="validar-cliente-saldo"
      model="com.eyc.base.db.Cliente" width="large"    >
 
    <panel title="Datos del cliente">
@@ -24,9 +26,7 @@
              <field name="apellidos" colSpan="6"/>
           </editor>
     </field>
-
-         
-     
+ 
 
        <field name="activo" widget="BooleanSwitch" colSpan="03"  />
        <field name="saldo" readonlyIf="id"  colSpan="12" />
@@ -43,6 +43,7 @@
 
 
   <panel-related field="pagos" colSpan="12" orderBy="fecha"
+      onChange="save"
      grid-view="pagos-grid" form-view="pagos-form" title="Pagos" />
 </form>
 
@@ -53,6 +54,9 @@
   <view type="form" name="mickeymouse" />
 </action-view>
 
+<action-validate name="validar-cliente-saldo">
+   <error message="Saldo no puede ser negativo" if="saldo &lt; 0" />
+  </action-validate>
 
 <action-view name="cliente-morosos-accion"
      title="Clientes Morosos" 

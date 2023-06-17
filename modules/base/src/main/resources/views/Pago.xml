@@ -5,16 +5,34 @@
 
 <grid name="pagos-grid" title="Lista de pagos"  model="com.eyc.base.db.Pago">
     <field name="fecha" />
-    <field name="monto" />
+    <field name="monto" aggregate="sum" />
     <field name="consolidado" />
 </grid>
 
-<form name="pagos-form" title="pago"  model="com.eyc.base.db.Pago" >
+<form name="pagos-form" title="pago"  model="com.eyc.base.db.Pago"
+   onNew="colocar-fecha-por-omision-en-pagos" 
+   onSave="validar-monto-pago">
    <panel title="Datos del pago">
        <field name="fecha" colSpan="12" />
-       <field name="monto" colSpan="06" />
+       <field name="monto" colSpan="06" onChange="chequear-monto-pago-mayor-cero" /> 
        <field name="consolidado" colSpan="06" widget="BooleanSwitch" />
   </panel>
 </form>
+
+<!-- groovy es un lenguaje script en JAVA -->
+<action-record name="colocar-fecha-por-omision-en-pagos"
+     model="com.eyc.base.db.Pago">
+     <field name="fecha" expr="eval: __date__" />
+</action-record>
+
+<action-condition name="chequear-monto-pago-mayor-cero">
+  <check field="createDate" if="monto &gt; 0"
+    error="ERROR SI FUNCIONA "/>
+</action-condition>
+
+<action-validate name="validar-monto-pago">
+   <error message="Saldo no puede ser negativo" if="monto &lt; 0" />
+   <error message="Saldo no puede ser cero" if="monto == 0" />
+ </action-validate>
 
 </object-views>

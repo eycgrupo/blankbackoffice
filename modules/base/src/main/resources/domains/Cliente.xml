@@ -38,6 +38,7 @@
              AND c.consolidado = false)
          ]]> 
       </decimal>
+      <integer name="sequence" title="sequence" />
   </entity>
  
 </domain-models>
