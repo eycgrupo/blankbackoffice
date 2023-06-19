@@ -10,5 +10,11 @@
     <option value="dog">Dog</option>
 </selection>
  
+<selection name="tipos.de.pago">
+    <option value="efectivo">Efectivo</option>
+    <option value="tarjeta">Tarjeta de Crédito</option>
+    <option value="cheque">Cheque</option>
+ </selection>
+ 
 
 </object-views>

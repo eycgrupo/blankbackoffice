@@ -11,8 +11,9 @@
       <decimal name="monto" title="Monto de pago"  precision="12" scale="2" 
             default="0.00"  />
       <boolean name="consolidado" title="Está consolidado?" default="false" />
-      
-      
+      <string name="tipoPago" title="Tipo de pago" 
+      selection="tipos.de.pago"  default="efectivo"/>
+      <string name="numeroDocumento" title="Número de documento" />
       <entity-listener class="com.eyc.base.db.repo.PagoListener"/>
 
   </entity>
