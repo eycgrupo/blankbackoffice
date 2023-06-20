@@ -11,14 +11,15 @@
 </grid>
 
 <form name="pagos-form" title="pago"  model="com.eyc.base.db.Pago"
-   onLoad="esconder-numero-doc-por-omision"
-   onNew="colocar-fecha-por-omision-en-pagos" 
-   onSave="validar-monto-pago">
+    onNew="esconder-mostrar-numero-documento,colocar-fecha-por-omision-en-pagos" 
+    onSave="validar-monto-pago">
    <panel title="Datos del pago">
        <field name="fecha" colSpan="12"  />
-       <field name="tipoPago" colSpan="06"  />
+       <field name="tipoPago" colSpan="06" 
+           onChange="validar-tipo-documento" />
        <field name="numeroDocumento" colSpan="06"  />
-       <field name="monto" colSpan="06" onChange="chequear-monto-pago-mayor-cero" /> 
+       <field name="monto" colSpan="06" 
+        onChange="chequear-monto-pago-mayor-cero" /> 
        <field name="consolidado" colSpan="06" widget="BooleanSwitch" />
   </panel>
 </form>
@@ -39,8 +40,25 @@
    <error message="Saldo no puede ser cero" if="monto == 0" />
  </action-validate>
 
- <action-attrs name="esconder-numero-doc-por-omision" >
-    <attribute for="numeroDocumento" name="hidden" expr="eval: true" />
+ <action-attrs name="esconder-mostrar-numero-documento" >
+    <attribute for="numeroDocumento" name="hidden" expr="true" 
+       if = "__this__.tipoPago = 'efectivo'" /> 
+       <attribute for="numeroDocumento" name="hidden" expr="false " 
+     if="__this__.tipoPago = 'cheque'" />
+     <attribute for="numeroDocumento" name="hidden" expr="false " 
+     if="__this__.tipoPago = 'tarjeta'" />
  </action-attrs>
+
+ <action-attrs name="cambiar-titulo-numero-documento" >
+    <attribute for="numeroDocumento" name="title" expr="Número de tarjeta"
+        if="__this__.tipoPago = 'tarjeta'" />
+    <attribute for="numeroDocumento" name="title" expr="Número de cheque" 
+        if="__this__.tipoPago = 'cheque'" />
+ </action-attrs>
+
+<action-group name="validar-tipo-documento">
+  <action name="esconder-mostrar-numero-documento" />
+  <action name="cambiar-titulo-numero-documento" />
+</action-group>
 
 </object-views>
