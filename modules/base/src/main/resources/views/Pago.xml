@@ -41,20 +41,26 @@
  </action-validate>
 
  <action-attrs name="esconder-mostrar-numero-documento" >
-    <attribute for="numeroDocumento" name="hidden" expr="true" 
-       if = "__this__.tipoPago = 'efectivo'" /> 
-       <attribute for="numeroDocumento" name="hidden" expr="false " 
-     if="__this__.tipoPago = 'cheque'" />
-     <attribute for="numeroDocumento" name="hidden" expr="false " 
-     if="__this__.tipoPago = 'tarjeta'" />
+    <attribute for="numeroDocumento" name="hidden" 
+        expr="eval: (tipoPago == 'efectivo') ? true: false" /> 
+       
  </action-attrs>
+<!-- 
+ <action-attrs name="cambiar-titulo-numero-documento" >
+    <attribute for="numeroDocumento" name="title" 
+       expr="eval: (tipoPago == 'tarjeta') ? 'Número de tarjeta' : (tipoPago == 'cheque') ?  'Numero de cheque' : ''"/> 
+ </action-attrs>
+ -->
 
  <action-attrs name="cambiar-titulo-numero-documento" >
-    <attribute for="numeroDocumento" name="title" expr="Número de tarjeta"
-        if="__this__.tipoPago = 'tarjeta'" />
-    <attribute for="numeroDocumento" name="title" expr="Número de cheque" 
-        if="__this__.tipoPago = 'cheque'" />
+    <attribute for="numeroDocumento" name="title"  expr="eval:'Número de tarjeta'" 
+     if="tipoPago == 'tarjeta'"/> 
+     <attribute for="numeroDocumento" name="title"  expr="eval:'Número de cheque'" 
+     if="tipoPago == 'cheque'"/> 
+      <attribute for="numeroDocumento" name="title"  expr="eval:''" 
+     if="tipoPago == 'efectivo'"/> 
  </action-attrs>
+
 
 <action-group name="validar-tipo-documento">
   <action name="esconder-mostrar-numero-documento" />
