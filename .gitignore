@@ -3,9 +3,8 @@
 src/main/resources/axelor-config.properties
 # Gradle
 build
-.gradle/*
-.gradle
-
+./gradle
+**/.gradle/
 # Eclispe
 bin
 .project

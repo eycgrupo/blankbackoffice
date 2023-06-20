@@ -88,7 +88,7 @@ onSave="validar-cliente-saldo"
 
 
 <action-method name="llamar.hola.mundo">
-    <call class="com.paula.Demo" method="saludar" />
+    <call class="com.eyc.base.Demo" method="saludar(nombreCompleto)" />
 </action-method>
 
 </object-views>
