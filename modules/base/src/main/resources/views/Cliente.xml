@@ -15,7 +15,7 @@
 
 <form name="mickeymouse" title="Cliente"
 onSave="validar-cliente-saldo"
-     model="com.eyc.base.db.Cliente" width="large"    >
+     model="com.eyc.base.db.Cliente" width="large"  >
 
    <panel title="Datos del cliente">
 
@@ -45,6 +45,10 @@ onSave="validar-cliente-saldo"
   <panel-related field="pagos" colSpan="12" orderBy="fecha"
       onChange="save"
      grid-view="pagos-grid" form-view="pagos-form" title="Pagos" />
+
+     <panel sidebar="true" title="Acciones">
+        <button name="boton-saludar" title="Saludar" onClick="llamar.hola.mundo" />
+     </panel>
 </form>
 
 <action-view name="cliente-todos-accion"
@@ -81,5 +85,10 @@ onSave="validar-cliente-saldo"
   <view type="form" name="mickeymouse" />
   <domain>self.id IN (select cliente FROM Pago)</domain>
 </action-view>
+
+
+<action-method name="llamar.hola.mundo">
+    <call class="com.paula.Demo" method="saludar" />
+</action-method>
 
 </object-views>
