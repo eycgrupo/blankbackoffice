@@ -19,7 +19,6 @@ onSave="validar-cliente-saldo"
 
    <panel title="Datos del cliente">
 
-
     <field name="nombreCompleto" readonly="false" colSpan="12" >
          <editor x-show-titles="false">
              <field name="nombre" colSpan="6"/>
@@ -36,18 +35,18 @@ onSave="validar-cliente-saldo"
        <field name="comentario" showTitle="false" widget="TEXT" />
   </panel>
 
-    <panel title="Resúmen de pagos por consolidación"  > 
-           <field name="pagosConsolidados" colSpan="06" />
-           <field name="pagosNoConsolidados" colSpan="06" />
-    </panel>
-
+  <panel title="Resúmen de pagos por consolidación"  > 
+          <field name="pagosConsolidados" colSpan="06" />
+          <field name="pagosNoConsolidados" colSpan="06" />
+  </panel>
 
   <panel-related field="pagos" colSpan="12" orderBy="fecha"
       onChange="save"
      grid-view="pagos-grid" form-view="pagos-form" title="Pagos" />
 
      <panel sidebar="true" title="Acciones">
-        <button name="boton-saludar" title="Saludar" onClick="llamar.hola.mundo" />
+        <button name="boton-saludar" title="Saludar" 
+        onClick="com.eyc.base.web.CursoController:saludarme" />
      </panel>
 </form>
 
