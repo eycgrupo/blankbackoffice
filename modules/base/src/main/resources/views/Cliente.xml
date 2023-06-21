@@ -47,6 +47,8 @@ onSave="validar-cliente-saldo"
      <panel sidebar="true" title="Acciones">
         <button name="boton-saludar" title="Saludar" 
         onClick="com.eyc.base.web.CursoController:saludarme" />
+        <button name="boton-saludar" title="Mostrar producto" 
+        onClick="com.eyc.base.web.CursoController:mostrarProducto" />
      </panel>
 </form>
 

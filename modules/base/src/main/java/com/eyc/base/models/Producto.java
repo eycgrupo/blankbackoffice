@@ -1,101 +1,107 @@
 package com.eyc.base.models;
-import java.util.ArrayList;
 
+import java.util.List;
+ 
 public class Producto {
- private float id;
- private String title;
- private String description;
- private float price;
- private float discountPercentage;
- private float rating;
- private float stock;
- private String brand;
- private String category;
- private String thumbnail;
- ArrayList < Object > images = new ArrayList < Object > ();
 
+private Integer id;
+private String title;
+private String description;
+private Integer price;
+private Double discountPercentage;
+private Double rating;
+private Integer stock;
+private String brand;
+private String category;
+private String thumbnail;
+private List<String> images;
 
- // Getter Methods 
+public Integer getId() {
+return id;
+}
 
- public float getId() {
-  return id;
- }
+public void setId(Integer id) {
+this.id = id;
+}
 
- public String getTitle() {
-  return title;
- }
+public String getTitle() {
+return title;
+}
 
- public String getDescription() {
-  return description;
- }
+public void setTitle(String title) {
+this.title = title;
+}
 
- public float getPrice() {
-  return price;
- }
+public String getDescription() {
+return description;
+}
 
- public float getDiscountPercentage() {
-  return discountPercentage;
- }
+public void setDescription(String description) {
+this.description = description;
+}
 
- public float getRating() {
-  return rating;
- }
+public Integer getPrice() {
+return price;
+}
 
- public float getStock() {
-  return stock;
- }
+public void setPrice(Integer price) {
+this.price = price;
+}
 
- public String getBrand() {
-  return brand;
- }
+public Double getDiscountPercentage() {
+return discountPercentage;
+}
 
- public String getCategory() {
-  return category;
- }
+public void setDiscountPercentage(Double discountPercentage) {
+this.discountPercentage = discountPercentage;
+}
 
- public String getThumbnail() {
-  return thumbnail;
- }
+public Double getRating() {
+return rating;
+}
 
- // Setter Methods 
+public void setRating(Double rating) {
+this.rating = rating;
+}
 
- public void setId(float id) {
-  this.id = id;
- }
+public Integer getStock() {
+return stock;
+}
 
- public void setTitle(String title) {
-  this.title = title;
- }
+public void setStock(Integer stock) {
+this.stock = stock;
+}
 
- public void setDescription(String description) {
-  this.description = description;
- }
+public String getBrand() {
+return brand;
+}
 
- public void setPrice(float price) {
-  this.price = price;
- }
+public void setBrand(String brand) {
+this.brand = brand;
+}
 
- public void setDiscountPercentage(float discountPercentage) {
-  this.discountPercentage = discountPercentage;
- }
+public String getCategory() {
+return category;
+}
 
- public void setRating(float rating) {
-  this.rating = rating;
- }
+public void setCategory(String category) {
+this.category = category;
+}
 
- public void setStock(float stock) {
-  this.stock = stock;
- }
+public String getThumbnail() {
+return thumbnail;
+}
 
- public void setBrand(String brand) {
-  this.brand = brand;
- }
+public void setThumbnail(String thumbnail) {
+this.thumbnail = thumbnail;
+}
 
- public void setCategory(String category) {
-  this.category = category;
- }
+public List<String> getImages() {
+return images;
+}
 
- public void setThumbnail(String thumbnail) {
-  this.thumbnail = thumbnail;
- }
+public void setImages(List<String> images) {
+this.images = images;
+}
+
 }
