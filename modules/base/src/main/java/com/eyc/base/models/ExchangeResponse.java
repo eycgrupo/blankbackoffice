@@ -1,5 +1,6 @@
 
 package com.eyc.base.models;
+
 import com.eyc.base.models.Query;
 import com.eyc.base.models.Info;
 

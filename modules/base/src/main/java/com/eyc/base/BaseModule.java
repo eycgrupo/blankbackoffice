@@ -5,6 +5,8 @@ import com.eyc.base.service.CursoService;
 import com.eyc.base.service.CursoServiceImpl;
 import com.eyc.base.service.CommService;
 import com.eyc.base.service.CommServiceImpl;
+import com.eyc.base.service.ExchangeService;
+import com.eyc.base.service.ExchangeServiceImpl;
 
 public class BaseModule extends AxelorModule {
 
@@ -12,5 +14,6 @@ public class BaseModule extends AxelorModule {
   protected void configure() {
     bind(CursoService.class).to(CursoServiceImpl.class);
     bind(CommService.class).to(CommServiceImpl.class);
+    bind(ExchangeService.class).to(ExchangeServiceImpl.class);
   }
 }

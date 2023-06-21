@@ -16,6 +16,5 @@
       <many-to-one name="imagen" ref="com.axelor.meta.db.MetaFile"
             title="Imagen" required="false"/>
   </entity>
-     <field name="dataMetaFile" form-view="meta-files-form" grid-view="meta-files-grid"/>
 
 </domain-models>

@@ -1,9 +1,12 @@
 package com.eyc.base.web;
 
 import com.eyc.base.db.Cliente;
+import com.eyc.base.db.Pago;
 import com.eyc.base.models.Producto;
+import com.eyc.base.models.ExchangeResponse;
 import com.eyc.base.service.CursoService;
 import com.eyc.base.service.CommService;
+import com.eyc.base.service.ExchangeService;
 import com.axelor.i18n.I18n;
 import com.axelor.inject.Beans;
 import com.axelor.meta.schema.actions.ActionView;
@@ -25,6 +28,7 @@ public class CursoController {
   protected Logger log = LoggerFactory.getLogger(getClass());
   @Inject private CursoService servicio;
   @Inject private CommService servicioExterno;
+  @Inject private ExchangeService servicioExchange;
 
   public void saludarme(ActionRequest request, ActionResponse response) {
 
@@ -43,4 +47,19 @@ public class CursoController {
  
     response.setInfo(producto.getDescription(), "Producto");
   }
+
+  public void verificarTasaDeCambio(ActionRequest request, ActionResponse response) {
+
+    Pago pago = request.getContext().asType(Pago.class);
+    if ("GTQ".equals(pago.getTipoMoneda())) {
+        response.setValue("monto", pago.getMontoOriginal());
+
+    } else {
+    ExchangeResponse xchangeResp = servicioExchange.obtenerTasaCambio(
+      pago.getTipoMoneda(), "GTQ", pago.getMontoOriginal().toString());
+    
+      response.setValue("monto", xchangeResp.getResult());
+    }
+ 
+   }
 }

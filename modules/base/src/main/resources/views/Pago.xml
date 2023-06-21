@@ -21,8 +21,8 @@
            onChange="validar-tipo-documento" />
        <field name="numeroDocumento" colSpan="06"  />
        <field name="tipoMoneda" colSpan="03" />  
-       <field name="montoOriginal" hidden="true" />
-       <field name="monto" colSpan="06" 
+       <field name="montoOriginal" onChange="com.eyc.base.web.CursoController:verificarTasaDeCambio" />
+       <field name="monto" hidden="true" colSpan="06" 
         onChange="chequear-monto-pago-mayor-cero" /> 
        <field name="consolidado" colSpan="03" widget="BooleanSwitch" />
   </panel>
