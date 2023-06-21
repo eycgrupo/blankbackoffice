@@ -1,4 +1,4 @@
-package com.eyc.base.model;
+package com.eyc.base.models;
 
 public class Info {
 

@@ -1,7 +1,7 @@
 
-package com.eyc.base.model;
-import com.eyc.base.model.Query;
-import com.eyc.base.model.Info;
+package com.eyc.base.models;
+import com.eyc.base.models.Query;
+import com.eyc.base.models.Info;
 
 public class ExchangeResponse {
 
