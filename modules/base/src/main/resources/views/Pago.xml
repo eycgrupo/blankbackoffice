@@ -6,7 +6,9 @@
 <grid name="pagos-grid" title="Lista de pagos"  model="com.eyc.base.db.Pago">
     <field name="fecha" />
     <field name="tipoPago" />
+    <field name="tipoMoneda" />
     <field name="monto" aggregate="sum" />
+    <field name="montoOriginal" aggregate="sum" />
     <field name="consolidado" />
 </grid>
 
@@ -18,9 +20,11 @@
        <field name="tipoPago" colSpan="06" 
            onChange="validar-tipo-documento" />
        <field name="numeroDocumento" colSpan="06"  />
+       <field name="tipoMoneda" colSpan="03" />  
+       <field name="montoOriginal" hidden="true" />
        <field name="monto" colSpan="06" 
         onChange="chequear-monto-pago-mayor-cero" /> 
-       <field name="consolidado" colSpan="06" widget="BooleanSwitch" />
+       <field name="consolidado" colSpan="03" widget="BooleanSwitch" />
   </panel>
 </form>
 

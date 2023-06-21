@@ -16,5 +16,11 @@
     <option value="cheque">Cheque</option>
  </selection>
  
+ <selection name="tipos.de.moneda">
+     <option value="GTQ">Quetzales</option>
+     <option value="CAD">Dólar canadiense</option>
+     <option value="USD">Dólar americano</option>
+     <option value="GBP">Libra esterlina</option>
+ </selection>
 
 </object-views>
