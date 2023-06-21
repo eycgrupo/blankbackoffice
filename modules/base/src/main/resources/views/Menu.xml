@@ -3,10 +3,11 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views https://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
 
-<menuitem name="eyc-menu-parent-hello-world"
-            title="Hola Mundo"
+
+<menuitem name="eyc-menu-productos"
+            title="Productos"
             icon="fa-cubes" icon-background="blue"
-            action="hello-world-action" />
+            action="producto-todos-accion" />
 
 <menuitem name="eyc-menu-parent-clientes"
             title="Clientes"

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models https://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+  <module name="base" package="com.eyc.base.db" />
+
+  <entity name="Producto" cacheable="false">
+        <string name="descripcion" title="Descripción" />
+        <string name="marca" title="Marca" />
+        <string name="categoria" title="Categoría" />
+        <integer name="codigoExterno" title="Código externo" />
+       <decimal name="precio" title="Precio "  precision="12" scale="2" 
+            default="0.00"  />
+       <boolean name="activo" title="activo?" default="true" />
+      <many-to-one name="imagen" ref="com.axelor.meta.db.MetaFile"
+            title="Imagen" required="false"/>
+  </entity>
+
+</domain-models>

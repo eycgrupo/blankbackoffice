@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views https://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+<grid name="producto-grid" title="Lista de Productos"  model="com.eyc.base.db.Producto">
+    <field name="descripcion" />
+    <field name="codigoExterno" />
+    <field name="precio" />
+    <field name="imagen" form-view="meta-files-form" grid-view="meta-files-grid"/>
+</grid>
+
+<form name="producto-form" title="Producto"  model="com.eyc.base.db.Producto">
+   <panel title="Datos del Producto">
+       <field name="descripcion" colSpan="12"  />
+       <field name="codigoExterno" colSpan="06" />
+       <field name="precio" colSpan="06"  />   
+       <field name="marca" colSpan="06"  />   
+       <field name="categoria" colSpan="06"  />   
+  </panel>
+  <panel title="Imagen adjunta">
+    <field name="imagen" showTitle="false" widget="binary-link" 
+      canNew="true"
+      form-view="meta-files-form"  
+      grid-view="meta-files-grid"/>
+  </panel>
+
+  <panel sidebar="true">
+     <button name="btn-actualizar-datos-producto" title="Sincronizar Producto" 
+        showIf="codigoExterno"
+       onClick="" />
+  </panel>
+</form>
+ 
+   
+ <action-view name="producto-todos-accion"
+     title="Producto" 
+     model="com.eyc.base.db.Producto">
+  <view type="grid" name="producto-grid" />
+  <view type="form" name="producto-form" />
+</action-view>
+
+</object-views>
