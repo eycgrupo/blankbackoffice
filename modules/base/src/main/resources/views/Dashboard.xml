@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views https://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+     
+  <dashboard title="Tablero del curso" name="tablero.curso.datos.cliente">
+       <dashlet action="custom:pagos-recibidos"  height="100"   colSpan="06"/>
+       <dashlet action="custom:clientes-activos"  height="100"   colSpan="06"/>
+       <dashlet action="chart:clientes-y-sus-pagos" height="400" colSpan="12"/>
+  </dashboard>
+
+  <action-view name="accion-ver-tablero-del-curso" title="Tablero Curso">
+          <view type = "dashboard" name="tablero.curso.datos.cliente"/>
+          <context name="fechaHoy" expr="eval: __date__" />
+   </action-view>
+
+</object-views>

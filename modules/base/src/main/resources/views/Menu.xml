@@ -3,13 +3,17 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views https://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
 
+<menuitem name="eyc-menu-tableros" groups="GERENCIA,ASISTENTE"
+            title="Tableros"
+            icon="fa-pie-chart" icon-background="green"
+            action="accion-ver-tablero-del-curso" />
 
 <menuitem name="eyc-menu-productos"
-            title="Productos"
+            title="Productos"  groups="GERENCIA,OPERATIVO,ASISTENTE"
             icon="fa-cubes" icon-background="blue"
             action="producto-todos-accion" />
 
-<menuitem name="eyc-menu-parent-clientes"
+<menuitem name="eyc-menu-parent-clientes"  groups="GERENCIA,ASISTENTE,OPERATIVO"
             title="Clientes"
             icon="fa-cubes" icon-background="yellow"
              />

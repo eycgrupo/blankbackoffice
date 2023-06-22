@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views https://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+ 
+
+ <custom name="pagos-recibidos" title="Pagos recibidos"  css="report-box">
+    <dataset type="sql">
+        <![CDATA[
+           SELECT sum(a.monto) as monto
+           FROM base_pago a;
+         ]]>
+    </dataset>
+    <template>
+    <![CDATA[
+    <div class="report-data">
+      <h1>{{first.monto }}</h1>
+     <div class="report-tags"><span class="label label-important">Pagos</span></div>
+    </div>
+    ]]>
+    </template>
+</custom>
+
+<custom name="clientes-activos" title="Clientes activos"  css="report-box">
+    <dataset type="sql">
+        <![CDATA[
+           SELECT count(*) as clientes
+           FROM base_cliente a
+           WHERE a.activo = true;
+         ]]>
+    </dataset>
+    <template>
+    <![CDATA[
+    <div class="report-data">
+      <h1>{{first.clientes }}</h1>
+     <div class="report-tags"><span class="label label-important”>Clientes activos</span></div>
+    </div>
+    ]]>
+    </template>
+</custom>
+
+
+<chart name="clientes-y-sus-pagos" title="Pagos y Clientes" stacked="false"> 
+  <dataset type="sql"> 
+  <![CDATA[
+      SELECT a.nombre as nombre,
+              sum(b.monto) as monto
+        FROM base_cliente a,
+             base_pago b
+        WHERE a.id = b.cliente 
+        GROUP BY a.nombre
+        ORDER BY monto DESC;
+  ]]>
+  </dataset>
+  <category key="nombre" type="text" title="Categoría" /> 
+  <series key="monto"  type="donut"  /> 
+  <config name="percent" value="true"/>
+ </chart>
+
+</object-views>
