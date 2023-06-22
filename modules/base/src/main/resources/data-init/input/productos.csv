@@ -1,0 +1,4 @@
+descripcion,trademark,category,precio,activo
+producto uno,PEPSI,SODAS,12.23,true
+producto dos,COCA COLA,SODAS,13.23,false
+producto tres,FANTA,SODAS,8.20,false

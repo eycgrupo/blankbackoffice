@@ -7,12 +7,13 @@
     <field name="descripcion" />
     <field name="codigoExterno" />
     <field name="precio" />
-    <field name="imagen" form-view="meta-files-form" grid-view="meta-files-grid"/>
-</grid>
+    <field name="activo" />
+ </grid>
 
 <form name="producto-form" title="Producto"  model="com.eyc.base.db.Producto">
    <panel title="Datos del Producto">
-       <field name="descripcion" colSpan="12"  />
+       <field name="descripcion" colSpan="09"  />
+       <field name="activo" colSpan="03" widget="BooleanSwitch" />
        <field name="codigoExterno" colSpan="06" />
        <field name="precio" colSpan="06"  />   
        <field name="marca" colSpan="06"  />   
