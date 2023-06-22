@@ -39,6 +39,14 @@
          ]]> 
       </decimal>
       <integer name="sequence" title="sequence" />
+
+      <track>
+        <field name="nombre"  />
+        <field name="apellidos" on="CREATE"  />
+        <field name="activo"  />
+        <message if="true" on="CREATE" tag="success" fields="nombre,apellidos">Cliente ha sido creado</message>
+       </track>
+
   </entity>
  
 </domain-models>

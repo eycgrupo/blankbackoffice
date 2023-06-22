@@ -50,6 +50,10 @@ onSave="validar-cliente-saldo"
         <button name="boton-saludar" title="Mostrar producto" 
         onClick="com.eyc.base.web.CursoController:mostrarProducto" />
      </panel>
+     <panel-mail>
+          <mail-messages limit="5" />
+          <mail-followers />
+     </panel-mail>
 </form>
 
 <action-view name="cliente-todos-accion"
