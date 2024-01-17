@@ -11,7 +11,7 @@
  
 <menuitem name="bbank-menu-catalogs"
             title="Catalogs"
-            icon="fa-config" icon-background="yellow" />
+            icon="fa-clone" icon-background="green" />
 
     <menuitem name="bbank-menu-catalogs-categories"
                 parent="bbank-menu-catalogs"
@@ -21,5 +21,10 @@
                 parent="bbank-menu-catalogs"
                 title="Product"
                 action="product-action" />
+
+      <menuitem name="bbank-menu-catalogs-customers"
+                parent="bbank-menu-catalogs"
+                title="Customer"
+                action="customer-action" />
 </object-views>
 

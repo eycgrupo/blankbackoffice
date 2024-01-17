@@ -8,7 +8,7 @@
   <entity name="Category" cacheable="false">
      <one-to-many name="products" ref="Product" 
          mappedBy="category" title="Products" />
-      <string name="description"  namecolumn="true" title="Description" />
+       <string name="description"  namecolumn="true" title="Description" />
   </entity>
 
 </domain-models>

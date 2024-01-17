@@ -17,7 +17,7 @@
       <field name="category" colSpan="06" widget="SuggestBox" />
       <field name="unitPrice" colSpan="06" />
       <field name="description" colSpan="09" />
-      <field name="active" colSpan="03"  />
+      <field name="active" colSpan="03" widget="BooleanSwitch"  />
     </panel>
 
     <panel title="Comments"  >

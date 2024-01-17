@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views https://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+  <grid name="customer-grid" title="Customer List" 
+            model="com.eyc.base.db.Customer">
+    <field name="fullName" />
+    <field name="currentBalance" />
+    <field name="active" />
+  </grid>
+
+  <form name="customer-form" title="Customer" 
+      model="com.eyc.base.db.Customer" width="large">
+
+    <panel title="Overview"  >
+       <field name="fullName" title="Full Name" readonly="false" colSpan="12">
+          <editor x-show-titles="false">
+             <field name="firstName" colSpan="06"/>
+             <field name="lastName" colSpan="06"/>
+          </editor>
+       </field>
+       <field name="currentBalance" colSpan="06" readonlyIf="id" />
+      <field name="active" colSpan="06" widget="BooleanSwitch" />
+    </panel>
+
+  </form>
+
+  <action-view name="customer-action" title="Customer list"
+          model="com.eyc.base.db.Customer">
+     <view type="grid" name="customer-grid" />
+     <view type="form" name="customer-form" />
+  </action-view>
+
+
+</object-views>

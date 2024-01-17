@@ -58,3 +58,12 @@ dependencies {
  war {
   archiveFileName = 'holamundo.war'
 }
+
+downloadLicenses {
+   dependencyConfiguration = 'implementation'
+   includeProjectDependencies = true
+}
+
+// build.gradle app
+ configurations.implementation.setCanBeResolved(true)
+configurations.api.setCanBeResolved(true)

@@ -7,8 +7,8 @@
 
    <entity name="Customer" cacheable="false">
 
-   <string name="firstName" title="first Name"   />
-   <string name="lastName"  title="last Name"   />
+   <string name="firstName" title="First Name"   />
+   <string name="lastName"  title="Last Name"   />
    <string name="fullName" namecolumn="true" title="Full name" >
      <![CDATA[
             if (firstName == null && lastName == null)
@@ -22,7 +22,7 @@
    </string>
 
    <boolean name="active" title="is Active?"  default="true" />
-   <decimal name="currentBalance" title="current Balance"
+   <decimal name="currentBalance" title="Current Balance"
          precision="12" scale="2"  default="0" />
  
  </entity>
