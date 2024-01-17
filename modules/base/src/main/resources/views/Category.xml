@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views https://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+  <grid name="category-grid" title="Category List" 
+            model="com.eyc.base.db.Category">
+    <field name="description" />
+   </grid>
+
+  <form name="category-form" title="Category" 
+  model="com.eyc.base.db.Category" width="large">
+    <panel title="Overview"  >
+      <field name="description" colSpan="12" />
+ 
+    </panel>
+  </form>
+
+  <action-view name="category-action" title="Category list"
+          model="com.eyc.base.db.Category">
+     <view type="grid" name="category-grid" />
+     <view type="form" name="category-form" />
+  </action-view>
+
+
+</object-views>

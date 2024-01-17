@@ -4,9 +4,22 @@
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views https://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
 
 <menuitem name="eyc-menu-parent-hello-world"
-            title="Hola Mundo"
+            title="Hello world"
             icon="fa-cubes" icon-background="blue"
             action="hello-world-action" />
 
+ 
+<menuitem name="bbank-menu-catalogs"
+            title="Catalogs"
+            icon="fa-config" icon-background="yellow" />
+
+    <menuitem name="bbank-menu-catalogs-categories"
+                parent="bbank-menu-catalogs"
+                title="Category"
+                action="category-action" />
+    <menuitem name="bbank-menu-catalogs-products"
+                parent="bbank-menu-catalogs"
+                title="Product"
+                action="product-action" />
 </object-views>
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models https://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+  <module name="base" package="com.eyc.base.db" />
+
+  <entity name="Product" cacheable="false">
+    <many-to-one name="category" ref="Category" title="Category" />
+    <string name="description" namecolumn="true"  title="Description"   />
+    <boolean name="active" title="is Active?"   default="true" />
+    <decimal name="unitPrice" title="Unit price"     precision="12" scale="2"  default="0" />
+    <string name="comments"  title="Comments" large="true" />
+  </entity>
+
+</domain-models>

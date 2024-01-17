@@ -5,10 +5,10 @@
 
   <module name="base" package="com.eyc.base.db" />
 
-  <entity name="HelloWorld" cacheable="false">
-      <string name="message" nameColumn="true" title="Message"   />
-      <integer name="numeroMensaje" title="Número de mensaje" />
+  <entity name="Category" cacheable="false">
+     <one-to-many name="products" ref="Product" 
+         mappedBy="category" title="Products" />
+      <string name="description"  namecolumn="true" title="Description" />
   </entity>
 
- 
 </domain-models>
