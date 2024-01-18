@@ -26,5 +26,12 @@
                 parent="bbank-menu-catalogs"
                 title="Customer"
                 action="customer-action" />
+
+<menuitem name="bbank-menu-invoicing-operator" groups="OPERATOR"
+            title="Invoices"
+            icon="fa-clone" icon-background="green"
+            action="invoice.action" />
+
+ 
 </object-views>
 

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views https://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+  <grid name="invoice-detail.grid" title="Invoice item list" 
+      model="com.eyc.base.db.InvoiceDetail">
+    <field name="itemCategory" />
+    <field name="item" onChange="action-on-change-item-code" />
+    <field name="quantity" />
+    <field name="unitPrice" />
+    <field name="total" />
+   </grid>
+
+  <form name="invoice-detail.form" title="Invoice Item"  model="com.eyc.base.db.InvoiceDetail" width="mini">
+    <panel title="Overview"  >
+      <field name="itemCategory" colSpan="06" widget="SuggestBox" />
+      <field name="item" colSpan="06" widget="SuggestBox" domain="self.category = :itemCategory" 
+       onChange="action-on-change-item-code"/>
+      <field name="quantity" onChange="action-on-change-qty" colSpan="04"  />
+      <field name="unitPrice" colSpan="04" readonly="true" />
+      <field name="total" colSpan="04"  />
+     </panel>
+  </form>
+ 
+ <action-record name="action-on-change-item-code" model="com.eyc.base.db.InvoiceDetail">
+    <field name="unitPrice" expr="eval: item.unitPrice ? item.unitPrice : 0.00" if="item"/>
+  </action-record>
+
+<action-record name="action-on-change-qty" model="com.eyc.base.db.InvoiceDetail">
+    <field name="total" expr="eval: quantity * unitPrice" if="unitPrice"/>
+  </action-record>
+
+</object-views>
