@@ -10,6 +10,12 @@
     <field name="unitPrice" />
   </grid>
 
+  <grid name="product-category-grid" title="Product List" 
+            model="com.eyc.base.db.Product">
+     <field name="description" />
+    <field name="unitPrice" />
+  </grid>
+
   <form name="product-form" title="Product" 
   model="com.eyc.base.db.Product" width="large">
 
@@ -18,6 +24,21 @@
       <field name="unitPrice" colSpan="06" />
       <field name="description" colSpan="09" />
       <field name="active" colSpan="03" widget="BooleanSwitch"  />
+    </panel>
+
+    <panel title="Comments"  >
+      <field name="comments" colSpan="12" showTitle="false"/>
+     </panel>
+
+  </form>
+
+  <form name="product-category-form" title="Product" 
+  model="com.eyc.base.db.Product" width="large">
+
+    <panel title="Overview"  >
+      <field name="description" colSpan="12" />
+      <field name="unitPrice" colSpan="06" />
+      <field name="active" colSpan="06" widget="BooleanSwitch"  />
     </panel>
 
     <panel title="Comments"  >

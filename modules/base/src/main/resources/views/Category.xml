@@ -12,8 +12,10 @@
   model="com.eyc.base.db.Category" width="large">
     <panel title="Overview"  >
       <field name="description" colSpan="12" />
- 
     </panel>
+    <panel-related title="Products" field="products" grid-view="product-category-grid" 
+       form-view="product-category-form" />
+    
   </form>
 
   <action-view name="category-action" title="Category list"
