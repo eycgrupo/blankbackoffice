@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views https://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+  <grid name="invoice.grid" title="Invoice List" 
+     orderBy="-invoiceDate" model="com.eyc.base.db.Invoice">
+    <field name="invoiceDate" />
+    <field name="isVoid" />
+    <field name="invoiceTotal" />
+   </grid>
+
+  <form name="invoice.form" title="Invoice" 
+  model="com.eyc.base.db.Invoice" width="large">
+    <panel title="Overview"  >
+      <field name="description" colSpan="12" />
+    </panel>
+    <panel-related title="Products" field="products" grid-view="product-invoice.grid" 
+       form-view="product-invoice.form" />
+    
+  </form>
+
+  <action-view name="invoice.action" title="Invoice list"
+          model="com.eyc.base.db.Invoice">
+     <view type="grid" name="invoice.grid" />
+     <view type="form" name="invoice.form" />
+  </action-view>
+
+
+</object-views>

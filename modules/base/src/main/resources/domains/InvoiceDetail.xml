@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models https://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+  <module name="base" package="com.eyc.base.db" />
+
+  <entity name="InvoiceDetail" cacheable="false">
+     <many-to-one name="invoice" ref="Invoice" title="Invoice" />
+     <many-to-one name="itemCategory" ref="Category" title="Category" />
+     <many-to-one name="item" ref="Product" title="Product" />
+     <decimal name="quantity" precision="12" scale="12" title="Quantity" />
+     <decimal name="unitPrice" precision="12" scale="12" title="Unit Price" />
+     <decimal name="total" precision="12" scale="12" title="Total" />
+   </entity>
+
+</domain-models>

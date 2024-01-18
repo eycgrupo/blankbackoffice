@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models https://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+  <module name="base" package="com.eyc.base.db" />
+
+  <entity name="Invoice" cacheable="false">
+     <date name="invoiceDate" title="Invoice Date" />
+     <boolean name="isVoid" title="is Void?" default="false" />
+     <decimal name="invoiceTotal" precision="12" scale="12" title="Total" />
+     <many-to-one name="customer" ref="Customer" title="Customer" required="true" />
+     <one-to-many name="invoiceItems" ref="InvoiceDetail"  mappedBy="invoice" title="Items" required="true" />
+   </entity>
+
+</domain-models>
