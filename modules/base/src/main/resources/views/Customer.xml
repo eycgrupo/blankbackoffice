@@ -23,7 +23,9 @@
        <field name="currentBalance" colSpan="06" readonlyIf="id" />
       <field name="active" colSpan="06" widget="BooleanSwitch" />
     </panel>
-
+<panel-related title="Payments" editable="false" field="payments"
+     grid-view="payment-customer-grid" 
+       form-view="payment-customer-form" /> 
   </form>
 
   <action-view name="customer-action" title="Customer list"

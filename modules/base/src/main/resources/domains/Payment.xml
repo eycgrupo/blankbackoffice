@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models https://axelor.com/xml/ns/domain-models/domain-models_6.1.xsd">
+
+  <module name="base" package="com.eyc.base.db" />
+
+  <entity name="Payment" cacheable="false">
+
+     <date name="paymentDate" namecolumn="true" title="Payment Date" />
+     <boolean name="isVoid" title="is Void?" default="false" />
+     <many-to-one name="customer" ref="Customer" title="Customer" required="true" />
+     <many-to-one name="invoice" ref="Invoice" title="Invoice" required="true" />
+     <decimal name="total" precision="12" scale="2" title="Total" />
+     <string name="comments"  title="Comments" large="true"   />
+     <entity-listener class="com.eyc.base.db.repo.PaymentListener"/>
+     
+   </entity>
+
+</domain-models>

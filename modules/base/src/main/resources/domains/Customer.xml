@@ -24,7 +24,7 @@
    <boolean name="active" title="is Active?"  default="true" />
    <decimal name="currentBalance" title="Current Balance"
          precision="12" scale="2"  default="0" />
- 
+   <one-to-many name="payments" ref="Payment"  mappedBy="customer" title="Payments" />
  </entity>
  
 </domain-models>

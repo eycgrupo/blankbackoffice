@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views https://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
+
+  <grid name="payment-grid" title="Payment list" 
+  canEdit="false" 
+   canDelete="false"
+      model="com.eyc.base.db.Payment">
+    <field name="paymentDate" />
+    <field name="customer" />
+    <field name="invoice" />
+    <field name="total" />
+    <field name="isVoid" />
+    </grid>
+
+  <form name="payment-form" title="Payment" 
+  canEdit="false" 
+  canDelete="false"
+  onNew="action-on-new-payment"
+  model="com.eyc.base.db.Payment" width="large">
+    <panel title="Overview"  >
+      <field name="customer" colSpan="06" widget="SuggestBox" />
+      <field name="invoice" colSpan="06" widget="SuggestBox" 
+       onChange="action-on-change-selected-invoice"
+       domain="self.customer = :customer" />
+      <field name="paymentDate" colSpan="06" />
+       <field name="total" colSpan="06"  />
+       <field name="comments" colSpan="12" widget="TEXT" />
+     </panel>
+  </form>
+ 
+   <action-view name="payment-action" title="Payments"
+          model="com.eyc.base.db.Payment">
+     <view type="grid" name="payment-grid" />
+     <view type="form" name="payment-form" />
+  </action-view>
+
+  <grid name="payment-customer-grid" title="Payment list" 
+  canEdit="false" 
+   canDelete="false"
+      model="com.eyc.base.db.Payment">
+    <field name="paymentDate" />
+     <field name="invoice" />
+    <field name="total" />
+    <field name="isVoid" />
+    </grid> 
+
+  <form name="payment-customer-form" title="Payment" 
+   canEdit="false" 
+   canDelete="false"
+   model="com.eyc.base.db.Payment"
+    width="large">
+    <panel title="Overview"  >
+       <field name="invoice" colSpan="06" />
+       <field name="paymentDate" colSpan="06"  />
+       <field name="total" colSpan="12"  />
+       <field name="comments" colSpan="12" widget="TEXT" />
+     </panel>
+  </form>
+
+  <action-record name="action-on-change-selected-invoice" model="com.eyc.base.db.Payment">
+    <field name="total" expr="eval: invoice.invoiceTotal ? invoice.invoiceTotal : 0.00" if="invoice"/>
+  </action-record>
+
+  <action-record name="action-on-new-payment" model="com.eyc.base.db.Payment">
+      <field name="paymentDate" expr="eval: __date__"/>
+   </action-record>
+
+</object-views>

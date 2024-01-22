@@ -4,6 +4,8 @@
   xsi:schemaLocation="http://axelor.com/xml/ns/object-views https://axelor.com/xml/ns/object-views/object-views_6.1.xsd">
 
   <grid name="invoice.grid" title="Invoice List" 
+  canEdit="false" 
+   canDelete="false"
      orderBy="-invoiceDate"  model="com.eyc.base.db.Invoice">
     <field name="customer" />
     <field name="invoiceDate" />
@@ -12,6 +14,8 @@
    </grid>
 
   <form name="invoice.form" title="Invoice"  model="com.eyc.base.db.Invoice"
+   canEdit="false" 
+   canDelete="false"
     onNew="default-invoice-values" width="large">
     <panel title="Overview"  >
       <field name="customer" colSpan="04" widget="SuggestBox" />
@@ -19,11 +23,11 @@
       <field name="invoiceTotal" colSpan="04" showIf="id" />
       <field name="isVoid" hidden="true" />
     </panel>
-    <panel-related title="Items" field="invoiceItems" grid-view="invoice-detail.grid" 
+    <panel-related editable="true" title="Items" field="invoiceItems" grid-view="invoice-detail.grid" 
        form-view="invoice-detail.form" />
   </form>
 
-  <action-view name="invoice.action" title="Invoices"
+  <action-view name="invoice-action" title="Invoices"
           model="com.eyc.base.db.Invoice">
      <view type="grid" name="invoice.grid" />
      <view type="form" name="invoice.form" />

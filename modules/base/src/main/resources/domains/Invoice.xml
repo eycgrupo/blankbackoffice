@@ -6,7 +6,7 @@
   <module name="base" package="com.eyc.base.db" />
 
   <entity name="Invoice" cacheable="false">
-     <date name="invoiceDate" title="Invoice Date" />
+     <date name="invoiceDate" title="Invoice Date" namecolumn="true" />
      <boolean name="isVoid" title="is Void?" default="false" />
      <decimal name="invoiceTotal" precision="12" scale="2" title="Total" formula="true" >
         <![CDATA[

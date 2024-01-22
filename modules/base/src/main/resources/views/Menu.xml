@@ -27,11 +27,15 @@
                 title="Customer"
                 action="customer-action" />
 
-<menuitem name="bbank-menu-invoicing-operator" groups="OPERATOR"
+ <menuitem name="bbank-menu-invoicing-operator" groups="OPERATOR"
             title="Invoices"
             icon="fa-clone" icon-background="green"
-            action="invoice.action" />
+            action="invoice-action" />
 
+ <menuitem name="bbank-menu-payment-by-cashier" groups="CASHIER"
+            title="Payments"
+            icon="fa-credit-card-alt" icon-background="blue"
+            action="payment-action" />
  
 </object-views>
 

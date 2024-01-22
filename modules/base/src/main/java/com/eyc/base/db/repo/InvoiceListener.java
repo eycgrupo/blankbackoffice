@@ -16,7 +16,7 @@ import java.util.Objects;
     Customer theCustomer = invoice.getCustomer();
     List<InvoiceDetail> invoiceDetail  = invoice.getInvoiceItems();
     BigDecimal totalDetail = new BigDecimal("0.0");
-
+ 
     for (int i = 0; i < invoiceDetail.size(); i++) {
      totalDetail = totalDetail.add(invoiceDetail.get(i).getTotal());
     }
