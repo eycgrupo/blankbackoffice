@@ -11,6 +11,7 @@ import com.axelor.meta.schema.actions.ActionView;
 import com.axelor.meta.schema.actions.ActionView.ActionViewBuilder;
 import com.axelor.rpc.ActionRequest;
 import com.axelor.rpc.ActionResponse;
+import com.axelor.app.AppSettings;
 import com.google.common.base.Joiner;
 import com.google.inject.servlet.RequestScoped;
 import com.google.inject.persist.Transactional;
@@ -26,6 +27,8 @@ import java.math.BigDecimal;
 public class TrainingController {
  
   protected Logger log = LoggerFactory.getLogger(getClass());
+  private final AppSettings settings = AppSettings.get();
+  private String defaultCurrency = settings.get("application.defaultCurrency");
 
   @Inject private ExchangeService exchangeService;
  
@@ -34,18 +37,22 @@ public class TrainingController {
     Payment payment = request.getContext().asType(Payment.class);
     Currency currency = payment.getCurrency();
 
- if (payment.getOriginalAmount().compareTo(BigDecimal.ZERO) == 0) {
-        response.setValue("total", new BigDecimal("0"));
+    log.info("We are converting from {}", defaultCurrency);
 
- } else {
-    if ("BZD".equals(currency.getCode())) {
-        response.setValue("total", payment.getOriginalAmount());
-
+    if (payment.getOriginalAmount().compareTo(BigDecimal.ZERO) == 0) {
+            response.setValue("total", new BigDecimal("0"));
     } else {
-    ExchangeResponse xchangeResp = exchangeService.getExchangeRate(
-      currency.getCode(),"BZD", payment.getOriginalAmount().toString());
-      response.setValue("total", xchangeResp.getResult());
+        if (defaultCurrency.equals(currency.getCode())) {
+            response.setValue("total", payment.getOriginalAmount());
+            response.setAlert("This is to alert you that no conversion was made.", "Conversion Warning");
+
+        } else {
+        ExchangeResponse xchangeResp = exchangeService.getExchangeRate(
+          currency.getCode(),defaultCurrency, payment.getOriginalAmount().toString());
+          response.setValue("total", xchangeResp.getResult());
+
+          response.setNotify("Currency conversion was completed succesfully!", "Succesful Operation");
+        }
     }
- }
    }
 }

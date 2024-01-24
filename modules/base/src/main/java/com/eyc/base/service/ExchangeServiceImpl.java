@@ -3,7 +3,7 @@ import com.eyc.base.models.ExchangeResponse;
 import com.axelor.app.AppSettings;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.MediaType; 
  
 public class ExchangeServiceImpl implements ExchangeService {
     private final AppSettings settings = AppSettings.get();
