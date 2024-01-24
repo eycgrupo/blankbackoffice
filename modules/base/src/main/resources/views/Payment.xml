@@ -10,7 +10,9 @@
     <field name="paymentDate" />
     <field name="customer" />
     <field name="invoice" />
-    <field name="total" />
+    <field name="currency" />
+    <field name="originalAmount" />
+    <field name="total"  />
     <field name="isVoid" />
     </grid>
 
@@ -18,6 +20,7 @@
   canEdit="false" 
   canDelete="false"
   onNew="action-on-new-payment"
+   onSave="validate-payment-amount"
   model="com.eyc.base.db.Payment" width="large">
     <panel title="Overview"  >
       <field name="customer" colSpan="06" widget="SuggestBox" />
@@ -25,7 +28,12 @@
        onChange="action-on-change-selected-invoice"
        domain="self.customer = :customer" />
       <field name="paymentDate" colSpan="06" />
-       <field name="total" colSpan="06"  />
+       <field name="$invoiceTotal" colSpan="06" title="Invoice Total" readonly="true"  />
+       <field name="currency" colSpan="02" 
+       onChange="com.eyc.base.web.TrainingController:verifyExchangeRate" />
+       <field name="originalAmount" colSpan="05" 
+       onChange="com.eyc.base.web.TrainingController:verifyExchangeRate" />
+       <field name="total" colSpan="05" readonly="true" />
        <field name="comments" colSpan="12" widget="TEXT" />
      </panel>
   </form>
@@ -54,17 +62,24 @@
     <panel title="Overview"  >
        <field name="invoice" colSpan="06" />
        <field name="paymentDate" colSpan="06"  />
-       <field name="total" colSpan="12"  />
+       <field name="total" colSpan="12" 
+          />
        <field name="comments" colSpan="12" widget="TEXT" />
      </panel>
   </form>
 
   <action-record name="action-on-change-selected-invoice" model="com.eyc.base.db.Payment">
-    <field name="total" expr="eval: invoice.invoiceTotal ? invoice.invoiceTotal : 0.00" if="invoice"/>
+    <field name="$invoiceTotal" expr="eval: invoice.invoiceTotal ? invoice.invoiceTotal : 0.00" if="invoice"/>
   </action-record>
 
-  <action-record name="action-on-new-payment" model="com.eyc.base.db.Payment">
+   <action-record name="action-on-new-payment" model="com.eyc.base.db.Payment">
       <field name="paymentDate" expr="eval: __date__"/>
-   </action-record>
+    </action-record>
 
+
+  <action-validate name="validate-payment-amount">
+    <error message="Payment total cannot be negative" if="total &lt; 0" />
+    <error message="Payment total cannot be zero" if="total == 0" />
+  </action-validate>
+  
 </object-views>

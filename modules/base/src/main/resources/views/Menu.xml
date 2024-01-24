@@ -27,6 +27,12 @@
                 title="Customer"
                 action="customer-action" />
 
+   <menuitem name="bbank-menu-catalogs-currency"
+                parent="bbank-menu-catalogs"
+                title="Currency"
+                action="currency-action" />
+
+
  <menuitem name="bbank-menu-invoicing-operator" groups="OPERATOR"
             title="Invoices"
             icon="fa-clone" icon-background="green"
